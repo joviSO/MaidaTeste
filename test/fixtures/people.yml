@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id           :bigint           not null, primary key
+#  user_id      :integer
+#  name         :string
+#  nickname     :string
+#  gender       :string
+#  weight       :float
+#  height       :float
+#  ideal_weight :float
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  user_id: 1
+  name: MyString
+  nickname: MyString
+  gender: MyString
+  weight: 1.5
+  height: 1.5
+  ideal_weight: 1.5
+
+two:
+  user_id: 1
+  name: MyString
+  nickname: MyString
+  gender: MyString
+  weight: 1.5
+  height: 1.5
+  ideal_weight: 1.5

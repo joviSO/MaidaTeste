@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @diet.person_id %>
+</p>
+
+<p>
+  <strong>Initial date:</strong>
+  <%= @diet.initial_date %>
+</p>
+
+<p>
+  <strong>Final date:</strong>
+  <%= @diet.final_date %>
+</p>
+
+<%= link_to 'Edit', edit_diet_path(@diet) %> |
+<%= link_to 'Back', diets_path %>

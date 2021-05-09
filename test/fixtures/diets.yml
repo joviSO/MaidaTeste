@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: diets
+#
+#  id           :bigint           not null, primary key
+#  person_id    :integer
+#  initial_date :datetime
+#  final_date   :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  person_id: 1
+  initial_date: 2021-05-09 19:26:09
+  final_date: 2021-05-09 19:26:09
+
+two:
+  person_id: 1
+  initial_date: 2021-05-09 19:26:09
+  final_date: 2021-05-09 19:26:09
