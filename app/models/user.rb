@@ -18,4 +18,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :person
+  has_many :diets, through: :person
+  has_many :meals, through: :diets
 end

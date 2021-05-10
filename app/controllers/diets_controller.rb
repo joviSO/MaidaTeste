@@ -1,25 +1,21 @@
 class DietsController < ApplicationController
   before_action :set_diet, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
-  # GET /diets or /diets.json
   def index
     @diets = Diet.all
   end
 
-  # GET /diets/1 or /diets/1.json
   def show
   end
 
-  # GET /diets/new
   def new
     @diet = Diet.new
   end
 
-  # GET /diets/1/edit
   def edit
   end
 
-  # POST /diets or /diets.json
   def create
     @diet = Diet.new(diet_params)
 
@@ -34,7 +30,6 @@ class DietsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /diets/1 or /diets/1.json
   def update
     respond_to do |format|
       if @diet.update(diet_params)
@@ -47,7 +42,6 @@ class DietsController < ApplicationController
     end
   end
 
-  # DELETE /diets/1 or /diets/1.json
   def destroy
     @diet.destroy
     respond_to do |format|
@@ -57,12 +51,10 @@ class DietsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_diet
       @diet = Diet.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def diet_params
       params.require(:diet).permit(:person_id, :initial_date, :final_date)
     end

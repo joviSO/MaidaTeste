@@ -17,4 +17,6 @@ class Person < ApplicationRecord
   belongs_to :user, foreign_key: "user_id"
 
   has_many :diets
+
+  scope :by_user, -> (current_user){where(user_id: current_user.id)}
 end
