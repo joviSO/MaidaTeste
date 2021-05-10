@@ -1,0 +1,15 @@
+
+<td class="text-center">
+  <h1>Bien venidos</h1>
+</td>
+  <h2>vai dar bom</h2>
+<%= user_signed_in? %>
+<% unless user_signed_in? %>
+  <td class="text-center">
+    <%= button_to "login", new_user_session_path, class:"btn btn-primary" %>
+  </td>
+<% else %>>
+  <td class="text-center">
+    <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+  </td>
+<% end %>
