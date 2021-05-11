@@ -59,4 +59,6 @@ gem 'cancancan'
 gem 'annotate'
 gem 'enumerize'
 gem 'has_scope'
-
+gem 'simple_form'
+gem 'ransack'
+gem 'kaminari'

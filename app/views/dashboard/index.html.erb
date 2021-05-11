@@ -1,3 +1,47 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: #228B22">
+    <div class="container">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div>
+    <% if user_signed_in? %>
+      <%= current_user.person.name %>
+    <% end %>
+  </div>
+</div>
+  <div class="btn-group">
+    <%= button_to "dashboard", dashboard_path, method: :get, class:"btn btn-link" %>
+    <%= button_to "Dietas", dashboard_path, method: :get, class:"btn btn-link" %></a>
+  </div>
 <h1> meu meu não diga, adeus </h1>
+<%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
 
-<% User.current_scope.email %>>
+  <h1> <%= current_user.person.nil? %></h1>
+  <% if current_user.person.nil? %>
+    <h1>vejo que é novo aqui no sistema, clique no botão abaixo para terminar o seu registro :D</h1>
+    <%= button_tag "Registro", type: "button", class: "btn btn-primary", data: {toggle:"modal", target:"#modalCadastroPerson"}%>
+  <% end %>
+
+  <div class="modal fade" id="modalCadastroPerson" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cadastro!!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

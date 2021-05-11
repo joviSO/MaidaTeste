@@ -1,11 +1,12 @@
 # == Route Map
 #
 Rails.application.routes.draw do
+  resources :variation_weights
   get "welcome/index"
 
   root "welcome#index"
 
-  get "dashboard/index", to: "dashboard#index", as: :dashboard
+  get "dashboard", to: "dashboard#index", as: :dashboard
 
   resources :meals
   resources :diets
