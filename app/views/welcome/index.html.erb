@@ -1,21 +1,30 @@
+<div class="container text-center">
+  <div class="col-lg-11 col-lg-offset-12">
+    <td class="mt-6">
+      <h1>Seja muito bem vindo</h1>
+    </td>
 
-<td class="text-center">
-  <h1>Bien venidos</h1>
-</td>
-  <h2>vai dar bom</h2>
-<%= user_signed_in? %>
-<%= current_user&.id %>
-<% unless user_signed_in? %>
-  <ul>
-    <label>
-      <%= button_to "login", first_login_path, method: :get, class:"btn btn-primary" %>
-    </label>
-    <label>
-      <%= button_to "Cadastrar-se", new_user_registration_path, method: :get, class:"btn link" %>
-    </label>
-  </ul>
-<% else %>
-  <td class="text-center">
-    <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
-  </td>
-<% end %>
+    <% unless user_signed_in? %>
+      <div class="btn-group">
+        <ul>
+          <label>
+            <%= button_to "login", first_login_path, method: :get, class:"btn btn-primary" %>
+          </label>
+          <label>
+            <%= button_to "Cadastrar-se", new_user_registration_path, method: :get, class:"btn link" %>
+          </label>
+        </ul>
+      </div>
+    <% else %>
+      <td class="text-center">
+        <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+      </td>
+      <% if current_user.person.nil?%>
+        <%= button_to "login", first_login_path, method: :get, class:"btn btn-primary" %>
+      <% else %>
+        <%= button_to "login", dashboard_path(current_user&.id), method: :get, class:"btn btn-accept" %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

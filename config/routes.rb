@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root "welcome#index"
   get "cadastrando_dados", to: "welcome#create_person", as: :first_login
 
-  post "dashboard/:id", to: "dashboard#index", as: :dashboard
+  get "dashboard/:id", to: "dashboard#index", as: :dashboard
+  get "dashboard/:id/diet_menu", to: "dashboard#menu_diet", as: :diet_dashboard
 
   resources :people
   resources :meals

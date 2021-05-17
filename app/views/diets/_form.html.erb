@@ -11,19 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :person_id %>
-    <%= form.number_field :person_id %>
+  <input type="hidden" name="diet[person_id]" value="<%= current_user.id %>">
+
+  <div class="field m-lg-2">
+    <%= form.label "Data inicial:" %>
+    <%= form.date_field :initial_date, as: :date, value: form.object.try(:strftime,"%d/%m/%Y"), class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :initial_date %>
-    <%= form.datetime_select :initial_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :final_date %>
-    <%= form.datetime_select :final_date %>
+  <div class="field m-lg-2">
+    <%= form.label "Data final" %>
+    <%= form.date_field :final_date, as: :date, value: form.object.try(:strftime,"%d/%m/%Y"), class: 'form-control' %>
   </div>
 
   <div class="actions">

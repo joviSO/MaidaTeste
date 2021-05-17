@@ -21,6 +21,11 @@ class Person < ApplicationRecord
   has_many :variation_weights
   has_many :diets
 
+  validates :name, presence: true
+  validates :gender, presence: true
+  validates :weight, presence: true, numericality: { only_integer: true  , greater_than: 0 }
+  validates :height, presence: true, numericality: { only_integer: true , greater_than: 0 }
+
   enumerize :gender, in: {
     male: "Masculino",
     female: "Feminino",

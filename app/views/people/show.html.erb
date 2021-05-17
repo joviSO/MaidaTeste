@@ -26,6 +26,6 @@
 </p>
 
 <div class="btn-group">
-  <%= button_to 'Confirmar', dashboard_path, method: :post, class: "btn btn-primary" %>
-  <%= button_to 'Editar', edit_person_path(@person), class: "btn btn-link" %>
+  <%= button_to 'Confirmar', dashboard_path, method: :get, class: "btn btn-primary" %>
+  <%= button_to 'Editar', edit_person_path(current_user&.person&.id), method: :get, class: "btn btn-link" %>
 </div>
