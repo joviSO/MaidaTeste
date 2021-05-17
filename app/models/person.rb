@@ -14,7 +14,8 @@
 #  updated_at   :datetime         not null
 #
 class Person < ApplicationRecord
-  belongs_to :user, foreign_key: "user_id"
+  has_one :user
+  has_many :variation_weights
 
   has_many :diets
 end

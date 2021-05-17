@@ -10,5 +10,5 @@
 #  updated_at  :datetime         not null
 #
 class Meal < ApplicationRecord
-  belongs_to :diet, foreign_key: "diet_id"
+  belongs_to :diet
 end

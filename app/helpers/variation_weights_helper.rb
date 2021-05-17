@@ -1,0 +1,2 @@
+module VariationWeightsHelper
+end

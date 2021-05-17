@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @variation_weight.weight %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @variation_weight.date %>
+</p>
+
+<%= link_to 'Edit', edit_variation_weight_path(@variation_weight) %> |
+<%= link_to 'Back', variation_weights_path %>

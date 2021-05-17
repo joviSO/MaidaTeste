@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_222633) do
+ActiveRecord::Schema.define(version: 2021_05_17_032348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2021_05_09_222633) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.string "nickname"
     t.string "gender"
@@ -51,8 +50,17 @@ ActiveRecord::Schema.define(version: 2021_05_09_222633) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "person_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "variation_weights", force: :cascade do |t|
+    t.integer "weight"
+    t.datetime "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "person_id"
   end
 
 end
