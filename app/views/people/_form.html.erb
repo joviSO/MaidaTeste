@@ -11,37 +11,34 @@
     </div>
   <% end %>
 
-  <div class="visually-hidden">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
+  <input type="hidden" name="person[user_id]" value="<%= current_user.id %>">
 
-  <div class="field">
-    <%= form.label :name %>
+  <div class="field m-lg-2">
+    <%= form.label "Nome:" %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :nickname %>
+  <div class="field m-lg-2">
+    <%= form.label "Apelido:" %>
     <%= form.text_field :nickname %>
   </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
+  <div class="field m-lg-2">
+    <%= form.label "Gênero:" %>
+    <%= form.select :gender,  [["Masculino", :male], ["Feminino", :female], ["Não informado", :not_informed], ["Outros", :others]] %>
   </div>
 
-  <div class="field">
-    <%= form.label :weight %>
+  <div class="field m-lg-2">
+    <%= form.label "Peso atual:" %>
     <%= form.text_field :weight %>
   </div>
 
-  <div class="field">
-    <%= form.label :height %>
+  <div class="field m-lg-2">
+    <%= form.label "Altura:" %>
     <%= form.text_field :height %>
   </div>
 
-  <div class="field">
+  <div class="visually-hidden">
     <%= form.label :ideal_weight %>
     <%= form.text_field :ideal_weight %>
   </div>

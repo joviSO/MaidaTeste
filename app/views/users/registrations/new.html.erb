@@ -1,4 +1,4 @@
-<ul><h2>Sign </h2></ul>
+<ul><h2>Cadastrar-se </h2></ul>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -19,59 +19,9 @@
     </ul>
 
   <ul>
-    <%= form_with(model: person) do |form| %>
-      <% if person.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-          <ul>
-            <% person.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="visually-hidden">
-        <%= form.label :user_id %>
-        <%= form.number_field :user_id %>
-      </div>
-
-      <div class="field">
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-      </div>
-
-      <div class="field">
-        <%= form.label :nickname %>
-        <%= form.text_field :nickname %>
-      </div>
-
-      <div class="field">
-        <%= form.label :gender %>
-        <%= form.text_field :gender %>
-      </div>
-
-      <div class="field">
-        <%= form.label :weight %>
-        <%= form.text_field :weight %>
-      </div>
-
-      <div class="field">
-        <%= form.label :height %>
-        <%= form.text_field :height %>
-      </div>
-
-      <div class="field">
-        <%= form.label :ideal_weight %>
-        <%= form.text_field :ideal_weight %>
-      </div>
-    <%end %>
-  </ul>
-
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.submit "prosseguir", class: "btn btn-primary" %>
   </div>
 <% end %>
 

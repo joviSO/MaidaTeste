@@ -4,16 +4,17 @@
 </td>
   <h2>vai dar bom</h2>
 <%= user_signed_in? %>
+<%= current_user&.id %>
 <% unless user_signed_in? %>
   <ul>
     <label>
-      <%= button_to "login", dashboard_path, method: :get, class:"btn btn-primary" %>
+      <%= button_to "login", first_login_path, method: :get, class:"btn btn-primary" %>
     </label>
     <label>
       <%= button_to "Cadastrar-se", new_user_registration_path, method: :get, class:"btn link" %>
     </label>
   </ul>
-<% else %>>
+<% else %>
   <td class="text-center">
     <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
   </td>

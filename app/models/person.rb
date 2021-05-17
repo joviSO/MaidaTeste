@@ -14,8 +14,17 @@
 #  updated_at   :datetime         not null
 #
 class Person < ApplicationRecord
-  has_one :user
-  has_many :variation_weights
+  extend Enumerize
 
+  belongs_to :user, optional: true
+
+  has_many :variation_weights
   has_many :diets
+
+  enumerize :gender, in: {
+    male: "Masculino",
+    female: "Feminino",
+    not_informed: "Não informado",
+    other: "Outros"
+  }, scope: true, predicates: true, default: :not_informed
 end

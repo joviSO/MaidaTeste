@@ -10,5 +10,15 @@
 #  updated_at  :datetime         not null
 #
 class Meal < ApplicationRecord
+  extend Enumerize
+
   belongs_to :diet
+
+  enumerize :meal_kind, in: {
+    breakfast: "Almoço",
+    snack: "Lanche",
+    lunch: "Almoço",
+    dinner: "Jantar",
+    supper: "Ceia"
+  }
 end

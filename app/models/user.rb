@@ -17,8 +17,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :person, optional: true
-
+  has_one :person
   has_many :diets, through: :person
   has_many :meals, through: :diets
 

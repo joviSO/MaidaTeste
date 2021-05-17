@@ -1,0 +1,27 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: #228B22">
+    <div class="container">
+      <form class="form-inline">
+        <div class="d-flex justify-content-between align-items-xxl-baseline">
+          <h1 class=" mr-sm-2" > Nome do app </h1>
+          <% if user_signed_in? %>
+            <%= "bem vindo #{current_user&.person&.name}" %>
+          <% end %>
+        </div>
+      </form>
+    </div>
+  </nav>
+</div>
+<div>
+  <% if current_user.person.nil? %>
+    <h7>vejo que é novo aqui no sistema, clique no botão abaixo para terminar o seu registro :D</h7>
+
+    </div >
+    <div class="mt-2 mb-2">
+      <%= button_to "Registrar-se", new_person_path, method: :get, class: "btn btn-primary" %>
+    </div>
+    <div>
+      <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %></a>
+    </div>
+  <% end %>
+</div>

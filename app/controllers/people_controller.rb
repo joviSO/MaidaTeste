@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %i[ show edit update destroy ]
+  before_action :person_params, only: :create
   before_action :authenticate_user!
 
   def index
@@ -56,6 +57,6 @@ class PeopleController < ApplicationController
     end
 
     def person_params
-      params.require(:person).permit(:user_id, :name, :nickname, :gender, :weight, :height, :ideal_weight)
+      params.require(:person).permit( :user_id, :name, :nickname, :gender, :weight, :height, :ideal_weight)
     end
 end

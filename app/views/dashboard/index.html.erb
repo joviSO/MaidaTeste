@@ -2,46 +2,54 @@
   <nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: #228B22">
     <div class="container">
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        <div class="d-flex justify-content-between align-items-xxl-baseline">
+          <h1 class=" mr-sm-2"> Nome do app </h1>
+          <% if user_signed_in? %>
+            <%= "bem vindo #{current_user&.person&.name}" %>
+          <% end %>
+        </div>
       </form>
     </div>
   </nav>
+
+
+  <div class="btn-group mt-3">
+    <%= button_to "dashboard", dashboard_path, method: :get, class: "btn btn-link" %>
+    <%= button_to "Dietas", dashboard_path, method: :get, class: "btn btn-link" %></a>
+  </div>
   <div>
-    <% if user_signed_in? %>
-      <%= current_user.person.name %>
-    <% end %>
+    <p>
+      <strong>Name:</strong>
+      <%= current_user&.person&.name %>
+    </p>
+
+    <p>
+      <strong>Nickname:</strong>
+      <%= current_user&.person&.nickname %>
+    </p>
+
+    <p>
+      <strong>Gender:</strong>
+      <%= current_user&.person&.gender %>
+    </p>
+
+    <p>
+      <strong>Weight:</strong>
+      <%= current_user&.person&.weight %>
+    </p>
+
+    <p>
+      <strong>Height:</strong>
+      <%= current_user&.person&.height %>
+    </p>
+
+    <p>
+      <strong>Ideal weight:</strong>
+      <%= @person&.person&.ideal_weight %>
+    </p>
+  </div>
+
+  <div>
+    <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %></a>
   </div>
 </div>
-  <div class="btn-group">
-    <%= button_to "dashboard", dashboard_path, method: :get, class:"btn btn-link" %>
-    <%= button_to "Dietas", dashboard_path, method: :get, class:"btn btn-link" %></a>
-  </div>
-<h1> meu meu não diga, adeus </h1>
-<%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
-
-  <h1> <%= current_user.person.nil? %></h1>
-  <% if current_user.person.nil? %>
-    <h1>vejo que é novo aqui no sistema, clique no botão abaixo para terminar o seu registro :D</h1>
-    <%= button_tag "Registro", type: "button", class: "btn btn-primary", data: {toggle:"modal", target:"#modalCadastroPerson"}%>
-  <% end %>
-
-  <div class="modal fade" id="modalCadastroPerson" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Cadastro!!!</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
