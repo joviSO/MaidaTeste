@@ -3,48 +3,65 @@
     <div class="container">
       <form class="form-inline">
         <div class="d-inline">
-          <h1 class=" mr-sm-2" > Nome do app </h1>
-          <% if user_signed_in? %>
-            <%= "bem vindo #{current_user&.person&.name}" %>
-          <% end %>
+          <h1 class=" mr-sm-2"> Nome do app </h1>
+          <div class="d-inline">
+            <% if user_signed_in? %>
+              <%= "bem vindo #{current_user&.person&.name}" %>
+            <% end %>
+          </div>
         </div>
       </form>
     </div>
   </nav>
 
-
-  <div class="btn-group mt-3">
-    <%= button_to "dashboard", dashboard_path, method: :get, class: "btn btn-link" %>
-    <%= button_to "Dietas", diet_dashboard_path, method: :get, class: "btn btn-link" %></a>
-  </div>
   <div>
-    <p>
-      <strong>Name:</strong>
-      <%= current_user&.person&.name %>
-    </p>
+    <div class="btn-group mt-3">
+      <%= button_to "dashboard", dashboard_path, method: :get, class: "btn btn-link" %>
+      <%= button_to "Dietas", diet_dashboard_path, method: :get, class: "btn btn-link" %></a>
+    </div>
+    <div>
+      <p>
+        <strong>Name:</strong>
+        <%= current_user&.person&.name %>
+      </p>
 
-    <p>
-      <strong>Nickname:</strong>
-      <%= current_user&.person&.nickname %>
-    </p>
+      <p>
+        <strong>Nickname:</strong>
+        <%= current_user&.person&.nickname %>
+      </p>
 
-    <p>
-      <strong>Gender:</strong>
-      <%= current_user&.person&.gender %>
-    </p>
+      <p>
+        <strong>Gender:</strong>
+        <%= current_user&.person&.gender %>
+      </p>
 
-    <p>
-      <strong>Weight:</strong>
-      <%= current_user&.person&.weight %>
-    </p>
+      <p>
+        <strong>Weight:</strong>
+        <%= current_user&.person&.weight %>
+      </p>
 
-    <p>
-      <strong>Height:</strong>
-      <%= current_user&.person&.height %>
-    </p>
+      <p>
+        <strong>Height:</strong>
+        <%= current_user&.person&.height %>
+      </p>
+    </div>
+    <div>
+      <%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></a>
+    </div>
+    <div>
+      <%# series = [
+        { weight: "Peso", data: @weight },
+      ] %>
+
+      <%# options = {
+        title: 'Variação de peso',
+        subtitle: 'Agrupado por dia',
+        xtitle: 'Dias',
+        ytitle: 'KG',
+        stacked: true
+      } %>
+
+      <%#= line_chart(series, options) %>
+    </div>
+    <%= button_to "registrar peso", new_variation_weight_path(current_user&.person&.id), method: :get %>
   </div>
-
-  <div>
-    <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %></a>
-  </div>
-</div>

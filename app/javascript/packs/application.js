@@ -13,6 +13,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("apexcharts")
 
 Rails.start()
 Turbolinks.start()
